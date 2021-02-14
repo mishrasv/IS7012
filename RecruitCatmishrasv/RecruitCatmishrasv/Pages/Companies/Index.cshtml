@@ -1,0 +1,66 @@
+﻿@page
+@model RecruitCatmishrasv.Pages.Companies.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Company List</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].PositionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].MinimumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].MaximumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company[0].MNC)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Company) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaximumSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MNC)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

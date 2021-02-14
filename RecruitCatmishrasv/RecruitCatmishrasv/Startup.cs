@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using RecruitCatmishrasv.Data;
+using Gtt.Uc.EntityFramework;
 
 namespace RecruitCatmishrasv
 {
@@ -23,6 +26,8 @@ namespace RecruitCatmishrasv
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddGttMem<RecruitCatmishrasvContext>("b28a1a98-ee52-4714-ab03-eb4d5a35f5de");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
